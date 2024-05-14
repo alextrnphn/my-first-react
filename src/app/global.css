@@ -107,6 +107,7 @@ section {
 }
 body {
   line-height: 1;
+  background-color: black;
 }
 ol,
 ul {
@@ -126,4 +127,7 @@ q:after {
 table {
   border-collapse: collapse;
   border-spacing: 0;
+}
+p {
+  color: white;
 }
