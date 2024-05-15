@@ -1,6 +1,6 @@
 "use client";
 
-import { Icon } from "../profile/page";
+import { Icon } from "../../profile/page";
 import Image from "next/image";
 import styled from "styled-components";
 
@@ -63,7 +63,7 @@ export default function NavigationBar({ items }: NavigationBarProps) {
                 width={icon.width}
                 height={icon.height}
                 alt={icon.altText}
-              />{" "}
+              />
             </button>
           );
         })}
