@@ -12,6 +12,8 @@ import HeartIcon from "../../../public/icons/heart.svg";
 import HouseIcon from "../../../public/icons/house.svg";
 import MagnifyingGlassIcon from "../../../public/icons/magnifyingglass.svg";
 import MessageIcon from "../../../public/icons/message.svg";
+//import photos grid
+import ProfilePhotosGrid from "../components/PhotoGrid/ProfilePhotosGrid";
 
 const ProfileContainer = styled.div`
   /* background-color: red; */
@@ -59,7 +61,7 @@ export default function Profile() {
       <ProfileContainer>
         {/* header */}
         <ProfileHeader />
-        {/* photo grid*/}
+        <ProfilePhotosGrid />
         {/* video stories*/}
       </ProfileContainer>
     </body>

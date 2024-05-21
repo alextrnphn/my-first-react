@@ -6,6 +6,7 @@ import Image from "next/image";
 const ProfileHeaderContainer = styled.div`
   display: grid;
   grid-template-columns: 1fr 2fr;
+  margin-bottom: 44px;
 `;
 const ProfileImage = styled(Image)`
   border-radius: 50%;
