@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Image from "next/image";
-import { LargeNumberLike } from "crypto";
+import ProfilePhotosGridModal from "./ProfilePhotosGridModal";
 
 const GridContainer = styled.div`
   display: grid;
@@ -55,6 +55,7 @@ export default function ProfilePhotosGrid() {
           </PhotoItem>
         ))}
       </GridContainer>
+      <ProfilePhotosGridModal />
     </>
   );
 }
