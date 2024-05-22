@@ -15,7 +15,7 @@ const PhotoItem = styled.div`
   position: relative;
   padding-bottom: 100%;
 `;
-interface PostObject {
+export interface PostObject {
   post_id: number;
   user_id: number;
   media_url: string;
@@ -23,6 +23,9 @@ interface PostObject {
 }
 export default function ProfilePhotosGrid() {
   const [posts, setPosts] = useState<PostObject[]>();
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [selectPost, setSelectPost] = useState<PostObject | null>(null);
+
   useEffect(() => {
     const fetchPosts = async () => {
       try {
@@ -41,11 +44,23 @@ export default function ProfilePhotosGrid() {
     };
     fetchPosts();
   }, []);
+
+  const openModal = (post: PostObject) => {
+    setIsModalOpen(true);
+    setSelectPost(post);
+  };
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <>
       <GridContainer>
         {posts?.map((postObject: PostObject) => (
-          <PhotoItem key={postObject.post_id}>
+          <PhotoItem
+            key={postObject.post_id}
+            onClick={() => openModal(postObject)}
+          >
             <Image
               src={postObject.media_url}
               alt="Post Photo"
@@ -55,7 +70,12 @@ export default function ProfilePhotosGrid() {
           </PhotoItem>
         ))}
       </GridContainer>
-      <ProfilePhotosGridModal />
+      {isModalOpen && (
+        <ProfilePhotosGridModal
+          closeModal={closeModal}
+          selectedPost={selectPost}
+        />
+      )}
     </>
   );
 }

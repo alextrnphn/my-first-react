@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Image from "next/image";
+import { PostObject } from "./ProfilePhotosGrid";
 const ModalBackdrop = styled.div`
   position: fixed;
   background-color: rgba(0, 0, 0, 0.7);
@@ -24,14 +25,25 @@ const ModalContent = styled.div`
     background-color: gray;
   }
 `;
-export default function ProfilePhotosGridModal() {
+interface ProfilePhotosGridModalPropsType {
+  closeModal: () => void;
+  selectedPost: PostObject | null;
+}
+
+export default function ProfilePhotosGridModal({
+  closeModal,
+  selectedPost,
+}: ProfilePhotosGridModalPropsType) {
   return (
-    <ModalBackdrop>
+    <ModalBackdrop onClick={closeModal}>
       <ModalContent>
         <div className="image-container">
-          <Image />
+          <Image
+            src={selectedPost ? selectedPost?.media_url : ""}
+            alt="Modal Image"
+            fill
+          />
         </div>
-
         <div className="comments-container">
           <p>comments</p>
         </div>
