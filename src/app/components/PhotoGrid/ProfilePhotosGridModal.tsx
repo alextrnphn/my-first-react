@@ -18,12 +18,19 @@ const ModalContent = styled.div`
   border-radius: 5px;
   display: grid;
   grid-template-columns: 60% 40%;
+  max-width: 900px;
+
   .image-container {
     background-color: red;
     position: relative;
   }
   .comments-container {
-    background-color: gray;
+    background-color: white;
+
+    p {
+      color: black;
+    }
+    padding: 10px;
   }
 `;
 interface ProfilePhotosGridModalPropsType {
@@ -37,12 +44,13 @@ export default function ProfilePhotosGridModal({
 }: ProfilePhotosGridModalPropsType) {
   return (
     <ModalBackdrop onClick={closeModal}>
-      <ModalContent>
+      <ModalContent onClick={(e) => e.stopPropagation()}>
         <div className="image-container">
           <Image
             src={selectedPost ? selectedPost?.media_url : ""}
             alt="Modal Image"
             fill
+            objectFit="cover"
           />
         </div>
         <div className="comments-container">
