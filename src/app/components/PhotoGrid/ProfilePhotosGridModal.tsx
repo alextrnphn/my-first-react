@@ -20,6 +20,7 @@ const ModalContent = styled.div`
   grid-template-columns: 60% 40%;
   .image-container {
     background-color: red;
+    position: relative;
   }
   .comments-container {
     background-color: gray;
